@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <link rel="stylesheet" href="styles.css">  
+
+    
+
+    <title>Database Application</title>
+</head>
+<body>
+    <!-- ===================================================================================== -->
+    <!-- Display the current status of the database connection. 
+         !!HERE TO HELP U DEBUGGING, NOT REQUIRED IN YOUR OWN PROJECT!!
+         -->
+    <h1>Database Connection Status: 
+        <!-- An in-line placeholder to display connection status. -->
+        <span id="dbStatus"> </span>
+        <!-- A loading GIF, will be hided once get the status. -->
+        <img id="loadingGif" class="loading-gif" src="loading_100px.gif" alt="Loading...">
+    </h1>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <div class="topnav">
+        <a href="index.html">Club</a>
+        <a href="player.html">Player</a>
+        <a href="seasonrecord.html">Season Record</a>
+        <a class="active" href="stadium.html">Stadium</a>
+        <a href="game.html">Game</a>
+        <a href="manager.html">Manager</a>
+        <a href="referee.html">Referee</a>
+        <a href="clubowner.html">Club Owner</a>  
+
+      </div>
+
+    <!-- Show 'Demotable'. 
+        Data will be fetched and inserted here dynamically using JavaScript. -->
+    <h2>Show Stadiums</h2>
+    <table id="stadiumtable" border="1">
+        <thead>
+            <tr>
+                <!--Table head, need to be adjusted accordingly to align with your own.-->
+                <th>Stadium Name</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Capacity</th>
+                <th>Year Built</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br><hr><br> <!-- ========================================================================= -->
+    <h2>Reset Stadium Table</h2>
+    <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
+    <button id="resetStadiumtable"> reset </button> <br>
+    <!-- A placeholder to display messages related to the reset operation. -->
+    <div id="resetResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2> Insert Values into Stadium Table </h2>
+    <form id="insertStadiumtable">
+        Stadium Name: <input type="text" id="insertStadiumName" placeholder="Enter Stadium Name" maxlength="20" required> <br><br>
+        City: <input type="text" id="insertCity" placeholder="Enter City" maxlength="20"> <br><br>
+        Country: <input type="text" id="insertCountry" placeholder="Enter Country" maxlength="20"> <br><br>
+        Capacity: <input type="int" id="insertCapacity" placeholder="Enter Capacity"> <br><br>
+        Year Built: <input type="int" id="insertYearBuilt" placeholder="Enter Year Built"> <br><br>
+        
+        <button type="submit"> insert </button> <br>
+    </form>
+    <div id="insertResultMsg"></div>
+
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Update Value in Stadium Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the update statement will not do anything.</p>
+    <form id="updateValuestadiumtable">
+        Stadium Name: <input type="text" id="updatedStadium" placeholder="Enter Stadium Name" required> <br><br>
+        Column to Change: <input type="text" id="updatedStadiumColumn" placeholder="Enter Column Name" required><br><br>
+        New Value: <input type="text" id="updatedStadiumValue" placeholder="Enter New Value" maxlength = "20" required> <br><br>
+
+        <button type="submit"> update </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the update operation. -->
+    <div id="updateNameResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+    
+    <h2>Delete Value in Stadium Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the delete statement will not do anything.</p>
+    <form id="deleteValuestadiumtable">
+        Stadium Name: <input type="text" id="deleteStadium" placeholder="Enter Stadium Name" required><br><br>
+        <button type="submit"> delete </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the delete operation. -->
+    <div id="deleteResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Count the Tuples in Stadium Table</h2>
+    <button id="countstadiumtable"> count </button> <br><br>
+    <!-- A placeholder to display the count result. -->
+    <div id="countResultMsg"></div> <br>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Join Games and Stadiums by Country</h2>
+
+    <form id="joinstadiumtablebycountry">
+        Country Name: <input type="text" id="inputcountry" placeholder="Enter Country Name" required><br><br>
+        <button id="joinStadiumtable"> Join </button> <br>
+    </form>
+    
+    <br>
+    <!-- Table to Display Season Records -->
+    <table id="joinedtable" border="1">
+        <thead>
+            <tr>
+                <!-- Adjust the table head based on the selected columns -->
+                <!-- Initially empty, will be filled by JavaScript -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data rows will be inserted here dynamically -->
+        </tbody>
+    </table>
+
+    
+
+    <!-- ===================================================================================== -->
+    <!-- External JavaScript file that contains the functionality/logic for the operations above. -->
+    <script src="stadium.js"></script>
+</body>
+</html>

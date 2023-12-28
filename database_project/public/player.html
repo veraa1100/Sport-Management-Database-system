@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <link rel="stylesheet" href="styles.css">  
+
+    
+
+    <title>Database Application</title>
+</head>
+<body>
+    <!-- ===================================================================================== -->
+    <!-- Display the current status of the database connection. 
+         !!HERE TO HELP U DEBUGGING, NOT REQUIRED IN YOUR OWN PROJECT!!
+         -->
+    <h1>Database Connection Status: 
+        <!-- An in-line placeholder to display connection status. -->
+        <span id="dbStatus"> </span>
+        <!-- A loading GIF, will be hided once get the status. -->
+        <img id="loadingGif" class="loading-gif" src="loading_100px.gif" alt="Loading...">
+    </h1>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <div class="topnav">
+        <a href="index.html">Club</a>
+        <a class="active" href="player.html">Player</a>
+        <a href="seasonrecord.html">Season Record</a>
+        <a href="stadium.html">Stadium</a>
+        <a href="game.html">Game</a>
+        <a href="manager.html">Manager</a>
+        <a href="referee.html">Referee</a>
+        <a href="clubowner.html">Club Owner</a>  
+
+      </div>
+
+      <!-- SELECTION -->
+      <h2> Filter Player Table </h2>
+      <form id="filterPlayerTable">
+          <input type="text" id="filterPlayerName" placeholder="Player Name" maxlength = "20">
+          <input type="int" id="filterAge" placeholder="Age">
+          <input type="int" id="filterJerseyNumber" placeholder="Jersey Number">
+          <input type="text" id="filterPosition" placeholder="Position" maxlength ="20">
+          <input type="text" id="filterClubName" placeholder="Club Name" maxlength="20">
+    
+          <button type="submit"> filter </button> <br>
+      </form>
+      <div id="filterResultMsg"></div>
+
+    <!-- Show 'Playertable'. 
+        Data will be fetched and inserted here dynamically using JavaScript. -->
+    <h2>Show Players</h2>
+    <table id="playertable" border="1">
+        <thead>
+            <tr>
+                <!--Table head, need to be adjusted accordingly to align with your own.-->
+                <th>Player Name</th>
+                <th>Age</th>
+                <th>Jersey Number</th>
+                <th>Position</th>
+                <th>Club Name</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <!-- <h2>Reset Player Table</h2>
+    <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
+    <button id="resetPlayertable"> reset </button> <br>
+    <div id="resetResultMsg"></div> -->
+
+
+    <h2> Insert Values into Player Table </h2>
+    <form id="insertPlayertable">
+        Player Name: <input type="text" id="insertPlayerName" placeholder="Enter Player Name" maxlength="20" required> <br><br>
+        Age: <input type="int" id="insertAge" placeholder="Enter Age"> <br><br>
+        Jersey Number: <input type="int" id="insertJerseyNumber" placeholder="Enter Jersey Number"> <br><br>
+        Position: <input type="text" id="insertPosition" placeholder="Enter Position" maxlength="20"> <br><br>
+        Club Name: <input type="text" id="insertClubName" placeholder="Enter Club Name" maxlength="20" required> <br><br>
+        
+        
+        <button type="submit"> insert </button> <br>
+    </form>
+    <div id="insertResultMsg"></div>
+
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Update Value in Player Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the update statement will not do anything.</p>
+    <form id="updateValueplayertable">
+        Player Name: <input type="text" id="updatedPlayer" placeholder="Enter Player Name" required><br><br>
+        Column to Change: <input type="text" id="updatedColumn" placeholder="Enter Column Name" required><br><br>
+        New Value: <input type="text" id="updateNewValue" placeholder="Enter New Value" maxlength = "20" required><br><br>
+
+        <button type="submit"> update </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the update operation. -->
+    <div id="updateNameResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Delete Value in Player Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the delete statement will not do anything.</p>
+    <form id="deleteValueplayertable">
+        Player Name: <input type="text" id="deletePlayer" placeholder="Enter Player Name" required><br><br>
+        <button type="submit"> delete </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the delete operation. -->
+    <div id="deleteResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    
+    <h2>Aggregation by Group By</h2>
+    <p>Choose an aggregation type:</p>
+    <select id="aggregationType">
+        <option value="average">Average Player Age</option>
+        <option value="minimum">Minimum Player Age</option>
+        <option value="maximum">Maximum Player Age</option>
+        <option value="count">Count Number of Players</option>
+    </select>
+    <button id="aggregatePlayerTable" type="submit"> aggregate </button> <br><br>
+
+    <!-- A placeholder to display messages related to the aggregation operation. -->
+    <div id="aggregateResultMsg"></div>
+
+
+
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Find Club by Average Age </h2>
+    <p> Find the clubs where the player's average age is older than the input </p>
+    Min Average Age: <input type="number" id="insertMinAvgAge" placeholder="Enter Min Average Age" maxlength="20" required> <br><br>
+    <button id="havingplayertable"> Find </button> <br><br>
+    <!-- A placeholder to display the count result. -->
+    <div id="havingResultMsg"></div> <br>
+
+    <!-- ===================================================================================== -->
+    <!-- External JavaScript file that contains the functionality/logic for the operations above. -->
+    <script src="player.js"></script>
+</body>
+</html>

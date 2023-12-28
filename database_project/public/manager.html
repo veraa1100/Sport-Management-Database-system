@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <link rel="stylesheet" href="styles.css">  
+
+    
+
+    <title>Database Application</title>
+</head>
+<body>
+    <!-- ===================================================================================== -->
+    <!-- Display the current status of the database connection. 
+         !!HERE TO HELP U DEBUGGING, NOT REQUIRED IN YOUR OWN PROJECT!!
+         -->
+    <h1>Database Connection Status: 
+        <!-- An in-line placeholder to display connection status. -->
+        <span id="dbStatus"> </span>
+        <!-- A loading GIF, will be hided once get the status. -->
+        <img id="loadingGif" class="loading-gif" src="loading_100px.gif" alt="Loading...">
+    </h1>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <div class="topnav">
+        <a href="index.html">Club</a>
+        <a href="player.html">Player</a>
+        <a href="seasonrecord.html">Season Record</a>
+        <a href="stadium.html">Stadium</a>
+        <a href="game.html">Game</a>
+        <a class="active" href="manager.html">Manager</a>
+        <a href="referee.html">Referee</a>
+        <a href="clubowner.html">Club Owner</a>  
+
+      </div>
+
+    <!-- Show 'Managertable'. 
+        Data will be fetched and inserted here dynamically using JavaScript. -->
+    <h2>Show Managers</h2>
+    <table id="managertable" border="1">
+        <thead>
+            <tr>
+                <!--Table head, need to be adjusted accordingly to align with your own.-->
+                <th>Manager Name</th>
+                <th>Country of Origin</th>
+                <th>Year Joined</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Reset Manager Table</h2>
+    <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
+    <button id="resetManagertable"> reset </button> <br>
+    <!-- A placeholder to display messages related to the reset operation. -->
+    <div id="resetResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2> Insert Values into Manager Table </h2>
+    <form id="insertManagertable">
+        Manager Name: <input type="text" id="insertManagerName" placeholder="Enter Manager Name" maxlength="20" required> <br><br>
+        Country of Origin: <input type="text" id="insertCountryOfOrigin" placeholder="Enter Country of Origin" maxlength="20"> <br><br>
+        Year Joined: <input type="int" id="insertYearJoined" placeholder="Enter Year Joined"> <br><br>
+       
+        <button type="submit"> insert </button> <br>
+    </form>
+    <div id="insertResultMsg"></div>
+
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Update Name in Manager Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the update statement will not do anything.</p>
+    <form id="updateValuemanagertable">
+        Manager Name: <input type="text" id="updatedManager" placeholder="Enter Manager Name" required> <br><br>
+        Column to Change: <input type="text" id="updatedColumn" placeholder="Enter Column Name" required><br><br>
+        New Value: <input type="text" id="updateNewValue" placeholder="Enter New Value" maxlength="20" required> <br><br>
+
+        <button type="submit"> update </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the update operation. -->
+    <div id="updateNameResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+    
+    <h2>Delete Value in Manager Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the delete statement will not do anything.</p>
+    <form id="deleteValuemanagertable">
+        Manager Name: <input type="text" id="deleteManager" placeholder="Enter Manager Name" required><br><br>
+        <button type="submit"> delete </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the delete operation. -->
+    <div id="deleteResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Count the Tuples in gameTable</h2>
+    <button id="countgametable"> count </button> <br><br>
+    <!-- A placeholder to display the count result. -->
+    <div id="countResultMsg"></div> <br>
+
+    <!-- ===================================================================================== -->
+    <!-- External JavaScript file that contains the functionality/logic for the operations above. -->
+    <script src="manager.js"></script>
+</body>
+</html>

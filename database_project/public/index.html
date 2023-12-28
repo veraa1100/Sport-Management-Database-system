@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <link rel="stylesheet" href="styles.css">  
+
+    
+
+    <title>Database Application</title>
+</head>
+<body>
+    <!-- ===================================================================================== -->
+    <!-- Display the current status of the database connection. 
+         !!HERE TO HELP U DEBUGGING, NOT REQUIRED IN YOUR OWN PROJECT!!
+         -->
+    <h1>Database Connection Status: 
+        <!-- An in-line placeholder to display connection status. -->
+        <span id="dbStatus"> </span>
+        <!-- A loading GIF, will be hided once get the status. -->
+        <img id="loadingGif" class="loading-gif" src="loading_100px.gif" alt="Loading...">
+    </h1>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <div class="topnav">
+        <a class="active" href="index.html">Club</a>
+        <a href="player.html">Player</a>
+        <a href="seasonrecord.html">Season Record</a>
+        <a href="stadium.html">Stadium</a>
+        <a href="game.html">Game</a>
+        <a href="manager.html">Manager</a>
+        <a href="referee.html">Referee</a>
+        <a href="clubowner.html">Club Owner</a>  
+
+      </div>
+    <!-- Show 'clubtable'. 
+        Data will be fetched and inserted here dynamically using JavaScript. -->
+    <h2>Show Clubs</h2>
+    <table id="clubtable" border="1">
+        <thead>
+            <tr>
+                <!--Table head, need to be adjusted accordingly to align with your own.-->
+                <th>Club Name</th>
+                <th>City</th>
+                <th>Year Founded</th>
+                <th>Stadium Name</th>
+                <th>Manager Name</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+   
+<!--
+    <h2>Reset Club Table</h2>
+    <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
+    <button id="resetclubtable"> reset </button> <br>
+    
+    <div id="resetResultMsg"></div> 
+-->
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2> Insert Values into Club Table </h2>
+    <form id="insertClubtable">
+        Club Name: <input type="text" id="insertClubName" placeholder="Enter Club Name" maxlength="20" required> <br><br>
+        City: <input type="text" id="insertCity" placeholder="Enter City" maxlength="20"> <br><br>
+        Year Founded: <input type="int" id="insertYearFounded" placeholder="Enter Year Founded"> <br><br>
+        Stadium Name: <input type="text" id="insertStadiumName" placeholder="Enter Stadium Name" maxlength="20"> <br><br>
+        Manager Name: <input type="text" id="insertManagerName" placeholder="Enter Manager Name" maxlength="20"> <br><br>
+        
+        <button type="submit"> insert </button> <br>
+    </form>
+    <div id="insertResultMsg"></div>
+
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Update Value in Club Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the update statement will not do anything.</p>
+    <form id="updateValueclubtable">
+        Club Name: <input type="text" id="updatedClub" placeholder="Enter Club Name" required><br><br>
+        Column to Change: <input type="text" id="updatedColumn" placeholder="Enter Column Name" required><br><br>
+        New Value: <input type="text" id="updateNewValue" placeholder="Enter New Value" maxlength = "20" required><br><br>
+
+        <button type="submit"> update </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the update operation. -->
+    <div id="updateNameResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Delete Value in Club Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the delete statement will not do anything.</p>
+    <form id="deleteValueclubtable">
+        Club Name: <input type="text" id="deleteClub" placeholder="Enter Club Name" required><br><br>
+        <button type="submit"> delete </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the delete operation. -->
+    <div id="deleteResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+
+    <h2>Find Club with Maximum Total Goals</h2>
+    <button id="findClubMaxTotalGoals">Find Club</button> <br><br>
+    <!-- A placeholder to display the result. -->
+    <div id="findClubResultMsg"></div> <br>
+
+    <!-- ===================================================================================== -->
+    <!-- External JavaScript file that contains the functionality/logic for the operations above. -->
+    <script src="scripts.js"></script>
+</body>
+</html>

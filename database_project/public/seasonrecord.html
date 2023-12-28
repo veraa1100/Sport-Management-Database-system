@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <link rel="stylesheet" href="styles.css">  
+
+    
+
+    <title>Database Application</title>
+</head>
+<body>
+    <!-- ===================================================================================== -->
+    <!-- Display the current status of the database connection. 
+         !!HERE TO HELP U DEBUGGING, NOT REQUIRED IN YOUR OWN PROJECT!!
+         -->
+    <h1>Database Connection Status: 
+        <!-- An in-line placeholder to display connection status. -->
+        <span id="dbStatus"> </span>
+        <!-- A loading GIF, will be hided once get the status. -->
+        <img id="loadingGif" class="loading-gif" src="loading_100px.gif" alt="Loading...">
+    </h1>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <div class="topnav">
+        <a href="index.html">Club</a>
+        <a href="player.html">Player</a>
+        <a class="active" href="seasonrecord.html">SeasonRecord</a>
+        <a href="stadium.html">Stadium</a>
+        <a href="game.html">Game</a>
+        <a href="manager.html">Manager</a>
+        <a href="referee.html">Referee</a>
+        <a href="clubowner.html">Club Owner</a>  
+
+      </div>
+
+    <!-- Show 'SeasonRecordtable'. 
+        Data will be fetched and inserted here dynamically using JavaScript. -->
+    <h2>Show Season Records</h2>
+    <table id="seasonrecordtable" border="1">
+        <thead>
+            <tr>
+                <!--Table head, need to be adjusted accordingly to align with your own.-->
+                <th>Player Name</th>
+                <th>Season</th>
+                <th>Yellowcard</th>
+                <th>Redcard</th>
+                <th>Assists</th>
+                <th>Goals</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Reset SeasonRecord Table</h2>
+    <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
+    <button id="resetSeasonRecordtable"> reset </button> <br>
+    <!-- A placeholder to display messages related to the reset operation. -->
+    <div id="resetResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2> Insert Values into SeasonRecord Table </h2>
+    <form id="insertSeasonRecordtable">
+        Player Name: <input type="text" id="insertPlayerName" placeholder="Enter SeasonRecord " maxlength="20" required> <br><br>
+        Season: <input type="text" id="insertSeason" placeholder="Enter Season" maxlength="20" required> <br><br>
+        Yellowcard: <input type="int" id="insertYellowcard" placeholder="Enter Yellowcard"> <br><br>
+        Redcard: <input type="int" id="insertRedcard" placeholder="Enter Redcard"> <br><br>
+        Assists: <input type="int" id="insertAssists" placeholder="Enter Assists"> <br><br>
+        Goals: <input type="int" id="insertGoals" placeholder="Enter Goals"> <br><br>
+
+        <button type="submit"> insert </button> <br>
+    </form>
+    <div id="insertResultMsg"></div>
+
+
+    <br><hr><br> <!-- ========================================================================= -->
+     <!-- Select Columns for Projection -->
+     <h2>View Selected Columns from Season Record Table:</h2>
+
+     <!-- Table to Display Season Records -->
+     <table id="seasonrecordtable2" border="1">
+         <thead>
+             <tr>
+                 <!-- Adjust the table head based on the selected columns -->
+                 <!-- Initially empty, will be filled by JavaScript -->
+             </tr>
+         </thead>
+         <tbody>
+             <!-- Data rows will be inserted here dynamically -->
+         </tbody>
+     </table>
+ 
+     <!-- Form to select columns to be displayed -->
+     <form id="viewSelectedColumnsForm">
+        <input type="checkbox" id="playerNameCheck" value="playername"> <label for="playerNameCheck">Player Name</label><br>
+        <input type="checkbox" id="seasonCheck" value="season"> <label for="seasonCheck">Season</label><br>
+        <input type="checkbox" id="yellowCardCheck" value="yellowcard"> <label for="yellowCardCheck">Yellow Card</label><br>
+        <input type="checkbox" id="redCardCheck" value="redcard"> <label for="redCardCheck">Red Card</label><br>
+        <input type="checkbox" id="assistsCheck" value="assists"> <label for="assistsCheck">Assists</label><br>
+        <input type="checkbox" id="goalsCheck" value="goals"> <label for="goalsCheck">Goals</label><br>
+        <button type="submit">View Selected Columns</button>
+    </form>
+ 
+     <!-- A placeholder to display messages related to the select column operation. -->
+     <div id="selectColumnNameResultMsg"></div>
+     
+     <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Update Value in Season Record Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the update statement will not do anything.</p>
+    <form id="updateValueseasonrecordtable">
+        Player Name: <input type="text" id="updatedPlayer" placeholder="Enter Player Name" required> <br><br>
+        Column to Change: <input type="text" id="updatedColumn" placeholder="Enter Column Name" required><br><br>
+        New Value: <input type="text" id="updateNewValue" placeholder="Enter New Value" maxlength="20" required> <br><br>
+
+        <button type="submit"> update </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the update operation. -->
+    <div id="updateNameResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+    
+    <h2>Delete Value in Season Record Table</h2>
+    <p>The values are case sensitive and if you enter in the wrong case, the delete statement will not do anything.</p>
+    <form id="deleteValueseasonrecordtable">
+        Player Name: <input type="text" id="deletePlayer" placeholder="Enter Player Name" required><br><br>
+        <button type="submit"> delete </button> <br>
+    </form>
+    <!-- A placeholder to display messages related to the delete operation. -->
+    <div id="deleteResultMsg"></div>
+
+    <br><hr><br> <!-- ========================================================================= -->
+
+    <h2>Find Players Without Red Cards</h2>
+    <p>Find players who have not received red cards in a specific season:</p>
+    Season: <input type="text" id="insertSeasontofind" placeholder="Enter Season" required><br><br> 
+    <button id="findplayerstable"> Find </button> <br><br>
+    <!-- A placeholder to display the result. -->
+    <div id="withoutredcardresultMsg"></div><br>
+    
+   
+    <!-- External JavaScript file that contains the functionality/logic for the operations above. -->
+    <script src="seasonrecord.js"></script>
+</body>
+</html>
